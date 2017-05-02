@@ -8,7 +8,7 @@ body {
 }
 
 h1 {
-	font-size: 32px;
+	font-size: 50px;
 	height: 100%;
 	margin: 0;
 	text-align: center;
@@ -24,7 +24,7 @@ form{
  	color: #000000;
  	font-size: 10px;
  	height: 100%;
-	margin: 0;
+	margin: 0 auto;
 	text-align: center;
 	width: 100%;
 }
@@ -33,7 +33,19 @@ form{
 p {
 	color: #ffffff;
 	font-size: 12px;
+}
 
-
+#custom-handle {
+    width: 3em;
+    height: 1.6em;
+    top: 50%;
+    margin-top: -.8em;
+    text-align: center;
+    line-height: 1.6em;
+  }
+#slider{
+	width: 20%;
+	margin: 0 auto;
+}
 
 
