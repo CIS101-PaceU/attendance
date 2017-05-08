@@ -7,42 +7,47 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="style.css"/>
 	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway" />
-  	<script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
- 	<script language="javascript" src="libraries/p5.dom.js"></script>
-  	<script language="javascript" src="libraries/p5.sound.js"></script>
-  	<script language="javascript" type="text/javascript" src="sketch.js"></script>
 	<script type="text/javascript">
-	
-	var counter = 0;
-	function setup()
-	{
-		noCanvas();
-
-		var timer = select('#timer');
-		timer.html('counter');
-
-		fucntion timeIT()
-		{
-			counter++;
-			timer.html(counter);
-		}
-
-		setInterval(timeIt, 1000);
-
-	}
-
-
+		var seconds = <?php echo $_POST['time'] ?>*60; //converting min to sec
+      		function secondPassed() 
+      		{
+          		var minutes = Math.round((seconds - 30)/60),
+              	remainingSeconds = seconds % 60;
+              	if (remainingSeconds < 10) 
+              	{
+              		remainingSeconds = "0" + remainingSeconds;
+          		}
+          		document.getElementById('countdown').innerHTML = minutes + ":" + remainingSeconds;
+          		if (seconds == 0) 
+          		{
+              		document.getElementById('countdown').innerHTML = "Times Up!!";
+              	} 
+              	else 
+              	{
+              		seconds--;
+          		}
+      		}
+      	var countdownTimer = setInterval('secondPassed()', 100);
 
 	</script>
+
 </head>
 
 
+
 <body>
+
 	<div id="contents_qrpage">
-	<h1 id="timer">00:00</h1><br><br>
+			<div id="timer">
+				<h1><time id="countdown"><?php echo $_POST['time']?>:00</time></h1>
+			</div>
+		<div id="image">
 		<?php
-			echo "<center> <img src='qr_img.php?d=$input_text height='500' width='500'> </center>";
+			$input_text = $_POST['text'];
+			$input_date = $_POST['date'];
+			echo "<br> <br> <center> <img src='qr_img.php?d=$input_text' height='500' width='500'> </center>";
 		?>
+		</div>
 	</div>
 
 	<div id="nav">

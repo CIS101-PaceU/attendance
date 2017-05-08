@@ -19,7 +19,6 @@ h2
 {
 	margin-left: 20px; 
 	font-family: Raleway;
-	color: white;
 }
 
 
@@ -99,7 +98,7 @@ label {
 	padding:20px;
 	border: none;
 	background-color: white; 
-	transition: 0.5s;
+	transition: 4s;
 	text-align: left; 
 }
 #nav a 
@@ -114,6 +113,12 @@ label {
 	font-family: Raleway;
 	color: Red;
 }
+
+#opClass {
+    opacity:0.4;
+    filter:alpha(opacity=40); /* For IE8 and earlier */
+}
+
 
 
 

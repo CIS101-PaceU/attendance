@@ -15,8 +15,8 @@
   <script>
   	
     <!--date picker-->
- 		$( function() 
- 		{
+ 	$( function() 
+ 	{
     	$( "#datepicker" ).datepicker();
   	});
  		
