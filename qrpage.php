@@ -27,7 +27,7 @@
               		seconds--;
           		}
       		}
-      	var countdownTimer = setInterval('secondPassed()', 100);
+      	var countdownTimer = setInterval('secondPassed()', 1000);
 
 	</script>
 
