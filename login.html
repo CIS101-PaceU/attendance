@@ -1,21 +1,31 @@
-<ion-view view-title="Login" name="login-view">
-  <ion-content class="padding">
-    <form ng-submit ="do-login()">
-      <div class="list ">
-        <label class="item item-input">
-          <span class="input-label">Username</span>
-          <input type="text" ng-model="loginData.username">
-        </label>
-        <label class="item item-input">
-          <span class="input-label">Password</span>
-          <input type="password" ng-model="loginData.password">
-        </label>
+<ion-header>
 
-          <button class="button button-block button-positive"  type="submit" ng-click ="doLogin()">Login</button>
+  <ion-navbar>
+    <ion-title>Login</ion-title>
+  </ion-navbar>
 
-  </div>
+</ion-header>
 
-      <img src="img/paceofficiallogo.png" width="192px" align = "centre">
-    </form>
-  </ion-content>
-</ion-view>
+
+<ion-content padding>
+ <form (ngSubmit)="login()" [formGroup]="loginFormControl">
+    <ion-list inset>
+      <ion-item>
+        <ion-label fixed>Username</ion-label>
+        <ion-input type="text" formControlName="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>Password</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+      </ion-list>
+
+     <div padding>
+      <button type="submit" ion-button color="primary" block>Login</button>
+    </div>
+  </form>
+    <button ion-button class="forgot-btn" clear ="true" block clear (click)="forgot_password()" > Forgot Password?</button>
+    <ion-img width = "280" height = "180" src = "assets/img/paceofficiallogo.png" class="center-image"> </ion-img>
+
+</ion-content>
