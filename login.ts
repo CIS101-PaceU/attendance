@@ -5,6 +5,8 @@ import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { EventListPage } from "../event-list/event-list";
 import { EventPage } from "../events/event";
 import { ForgotPasswordPage } from "../forgot_password/frg_pass";
+import {Http, Headers } from '@angular/http';
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'page-login',
@@ -15,17 +17,17 @@ export class LoginPage {
     email: '',
     password: ''
   };
-  public loginFormControl: FormGroup;
+//  public loginFormControl: FormGroup;
 
-  constructor(
+ /*constructor(
     private _nav: NavController,
     public navParams: NavParams,
     private _loadingController: LoadingController,
-    private _formBuilder: FormBuilder) {
+    private _formBuilder: FormBuilder) /*{
       // Create FormControl to validate fields
     this.loginFormControl = new FormGroup({
       email: new FormControl('utk', [Validators.required]),
-      password: new FormControl('12345678', [Validators.required, Validators.minLength(8)]),
+      password: new FormControl('as', [Validators.required, Validators.minLength(8)]),
     });
   }
 
@@ -34,9 +36,9 @@ export class LoginPage {
   }
   public forgot_password() {
       this._nav.push(ForgotPasswordPage);
-  }
+  }*/
 
-  public login() {
+  /*public login() {
 
     // Validation
     if (!this.loginFormControl.valid) {
@@ -59,6 +61,21 @@ export class LoginPage {
     window.setTimeout(() => {
       this._nav.push(EventPage);
     }, 3000);
+  } */
+  constructor(public http:Http) { }
+
+  login()
+  {
+  let headers = new Headers();
+  headers.append('Content-Type', 'application/json');
+  let data=JSON.stringify({username:"raja"});
+  this.http.post('https://attendancemobileapp.000webhostapp.com/login.php',data,headers)
+  .map(res => res.json())
+  .subscribe(res => {
+  alert("success "+res);
+  }, (err) => {
+  alert("failed");
+  });
   }
 
 

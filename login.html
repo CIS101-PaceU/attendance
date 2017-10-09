@@ -8,21 +8,21 @@
 
 
 <ion-content padding>
- <form (ngSubmit)="login()" [formGroup]="loginFormControl">
+ <form (ngSubmit)="login()">
     <ion-list inset>
       <ion-item>
         <ion-label fixed>Username</ion-label>
-        <ion-input type="text" formControlName="email"></ion-input>
+        <ion-input type="text" ></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label fixed>Password</ion-label>
-        <ion-input type="password" formControlName="password"></ion-input>
+        <ion-input type="password" ></ion-input>
       </ion-item>
       </ion-list>
 
      <div padding>
-      <button type="submit" ion-button color="primary" block>Login</button>
+      <button type="submit" ion-button color="primary" block (click) = "login()">Login</button>
     </div>
   </form>
     <button ion-button class="forgot-btn" clear ="true" block clear (click)="forgot_password()" > Forgot Password?</button>
