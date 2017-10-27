@@ -115,14 +115,4 @@ label {
 }
 
 
-.fadeImage {
-    -webkit-animation: fadein 4s; /* Safari, Chrome and Opera > 12.1 */
-    display: block;
-    margin: 25px auto;
-}
-
-@-webkit-keyframes fadein {
-    from { opacity: 1; }
-    to   { opacity: 0; }
-}
 

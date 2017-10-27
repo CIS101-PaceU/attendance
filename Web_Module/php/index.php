@@ -1,4 +1,25 @@
 <!DOCTYPE html>
+<?php
+  $servername = "localhost";
+  $username = "root";
+  $password = "root";
+  $dbname = "Attendance_test";
+  $date="2017-10-31";
+  // Create connection
+  $conn = new mysqli($servername, $username, $password, $dbname);
+
+  // Check connection
+  if ($conn->connect_error) 
+  {
+    die("Connection failed: " . $conn->connect_error);
+  } 
+
+  $query = "SELECT * FROM tb_event";
+  mysqli_query($conn, $query) or die(' error querrring the datbase');
+
+  $result = mysqli_query($conn, $query);
+  $row = mysqli_fetch_array($result);
+?>
 <html>
 
 
@@ -17,7 +38,7 @@
       <!--date picker-->
  	    $( function() 
  	    {
-    	 $( "#datepicker" ).datepicker();
+    	 $( "#datepicker" ).datepicker({ minDate: 0 });
   	  });
  		
       <!--slider-->
@@ -36,6 +57,19 @@
     	 });
     	 $( "#amount" ).val($( "#slider" ).slider( "value" ));
   	   });
+
+       <!--validate form-->
+       function validateForm() 
+       {
+          var date = document.forms["Attendance"]["date"].value;
+          if (date == "") 
+          {
+            alert("Date must be filled out");
+            return false;
+          }
+      }
+
+
   </script>
 
 </head>
@@ -43,25 +77,27 @@
 <body>
   <div id="contents">
     <h1>Attendance</h1>
-      <form action='qrpage.php' method='post'><br>
-        <p>Date:  <input type='text' name='date' id='datepicker' readonly="readonly"><br><br><br><br></p>
-        <p>Event Name: 
-          <select type='text' name='text' id='text'>
-            <option value="1">Week 1</option>
-            <option value="2">Week 2</option>
-            <option value="3">Week 3</option>
-            <option value="4">Week 4</option>
-            <option value="5">Week 5</option>
-            <option value="6">Week 6</option>
-            <option value="7">Week 7</option>
+      <form name="Attendance" action='qrpage.php' method='post' onsubmit="return validateForm()"><br>
+        <label>Date:  <input type='text' name='date' id='datepicker' readonly="readonly" required><br><br><br><br></label>
+        <label>Event Name: 
+          <select type='text' name='text' id='text' required>
+            <?php
+              while($row = mysqli_fetch_array($result))
+              {
+            ?>
+                <option value="<?php echo $row['event_id'];?>"><?php echo $row['event_name']; ?></option>";
+            <?php
+              }
+            ?>
+            ?>
           </select>
-          <br><br><br><br></p>
-        <p>Active Time:
+          <br><br><br><br></label>
+        <label>Active Time:
           <div id='slider'>
             <br>
-            <input name='time' id='amount' maxlength="2" size="2" readonly="readonly"><label>Minutes</label>
+            <input name='time' id='amount' maxlength="2" size="2" readonly="readonly" required><label>Minutes</label>
           </div>
-        </p>
+        </label>
         <br><br><br><br>
         <input type='submit' value='Submit' readonly="readonly">
       </form>

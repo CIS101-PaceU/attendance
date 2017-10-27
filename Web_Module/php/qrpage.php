@@ -25,7 +25,7 @@
           		if (seconds == 0) 
           		{
               		document.getElementById('countdown').innerHTML = "Times Up!!";
-              		//document.getElementById('image').innerHTML = "<img src="Late_Submission" + retvalue + ".png")";
+              		document.getElementById('image').innerHTML = "<br> <br> <img src=\'Late_0.png\' height='500' width='500' align='center'>" ;
               	} 
               	else 
               	{
@@ -45,9 +45,9 @@
 	</div>	
 
 	<div id="contents_qrpage">
-			<div id="timer">
-				<h1><time id="countdown"><?php echo $_POST['time']?>:00</time></h1>
-			</div>
+		<div id="timer">
+			<h1><time id="countdown"><?php echo $_POST['time']?>:00</time></h1>
+		</div>
 		<div id="image">
 			<?php
 				
@@ -58,7 +58,6 @@
 			?>
 		</div>
 	</div>
-	
 </body>
 </html>
 
