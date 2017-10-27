@@ -1,0 +1,33 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.ionicframework.qrscanner116241"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.ionicframework.qrscanner116241"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.ionicframework.qrscanner116241"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.ionicframework.qrscanner116241"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.ionicframework.qrscanner116241"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.ionicframework.qrscanner116241"
+        },
+        "cordova-plugin-barcodescanner": {
+            "PACKAGE_NAME": "com.ionicframework.qrscanner116241"
+        }
+    },
+    "dependent_plugins": {}
+}
