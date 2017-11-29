@@ -1,7 +1,7 @@
 <ion-content class="background">
 
   <ion-card>
-    <ion-img width = "300" height = "200" src = "assets/img/paceofficiallogo.png" class="center-image"> </ion-img>
+    <ion-img  src = "assets/img/logo1.jpg" class="center-image"> </ion-img>
     <ion-card-header>
       Login Form
     </ion-card-header>
@@ -14,8 +14,10 @@
         <ion-input type="password" placeholder="Password" [(ngModel)]="data.password"></ion-input>
       </ion-item>
       <button type="submit" ion-button block outline color="light" block (click) = "login()">Log in</button>
+      <button ion-button clear full color="light" block clear (click)="forgot_password()"><b>Forgot Password</b></button>
     </ion-list>
    </ion-card-content>
-     <button ion-button clear full color="light" block clear (click)="forgot_password()"><b>Forgot Password</b></button>
+   <ion-img  src = "assets/img/nyc-map.jpg" class="center-image"> </ion-img>
   </ion-card>
+
 </ion-content>

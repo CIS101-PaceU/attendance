@@ -17,6 +17,7 @@ export class ScanPage {
   public loading: boolean;
   private eventId: number;
   public eventTitle: string;
+  public active: string;
   public userid: number;
   data1: any;
   items;
@@ -38,11 +39,15 @@ export class ScanPage {
   ionViewDidLoad() {
     this.eventId = this._navParams.get('eventId');
     this.eventTitle = this._navParams.get('eventTitle');
+    this.active = this._navParams.get('active');
     this.userid  = this._navParams.get('userid');
 
     this.buttonText = "Scan";
     this.loading = false;
     //alert(this.userid);
+    //alert(this.eventId);
+    //alert(this.eventTitle);
+    //alert(this.active);
   }
 
   public scanQR() {
@@ -98,13 +103,13 @@ export class ScanPage {
     //alert("hi");
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    let eventId = barcodeData.text;
+    let ScannedeventId = barcodeData.text;
     //let eventId = 2;
   //  alert(eventId);
   //  alert(this.userid);
     //alert(barcodeData.text);
     //alert(this.device.uuid);
-    let data = JSON.stringify({eventId, userid:this.userid,uuid:this.uuid,longitude:this.longitude,latitude:this.latitude});
+    let data = JSON.stringify({eventId:this.eventId, ScannedeventId,userid:this.userid,uuid:this.uuid,longitude:this.longitude,latitude:this.latitude});
     this.http.post('https://attendancemobileapp.000webhostapp.com/Insert_Attendance.php',data)
     .map(res => res.json())
     .subscribe(res => {

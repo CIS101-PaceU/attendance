@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+    import { Component } from '@angular/core';
 //import { NavController, NavParams, LoadingController } from 'ionic-angular';
 //import { FormControl, FormBuilder, FormGroup } from '@angular/forms';
 import { NavController, ViewController } from 'ionic-angular';
@@ -17,8 +17,6 @@ export class LoginPage {
 
     data: any;
     output: number;
-
-
     public local: Storage;
   //};
 //  public loginFormControl: FormGroup;
@@ -93,7 +91,7 @@ public forgot_password() {
 //  alert(username);
 //  alert(password);
   let data = JSON.stringify({username, password});
-  this.http.post('https://attendancemobileapp.000webhostapp.com/PostResponse.php',data,headers)
+  this.http.post('https://attendancemobileapp.000webhostapp.com/LoginPage.php',data,headers)
   .map(res => res.json())
   .subscribe(res => {
   //alert("success "+res);

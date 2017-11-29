@@ -25260,8 +25260,28 @@ ion-navbar.toolbar {
   }
 }
 
+page-event-list .Events {
+  background-color: #b4d7ff;
+}
+
+EventPage .Events {
+  background-color: #b4d7ff;
+}
+
+EventPage .color {
+  background-color: #666362;
+}
+
 EventPage .send {
   border-radius: 30px;
+}
+
+page-forgot-password .forgot_password {
+  background-color: #b4d7ff;
+}
+
+page-forgot-password .color {
+  background-color: #666362;
 }
 
 page-forgot-password .send {
@@ -25295,7 +25315,7 @@ page-login .scroll.content {
 
 page-login ion-card.card {
   box-shadow: none;
-  background-color: #3B5998;
+  background-color: #3b5998;
   border-radius: 5px;
 }
 
@@ -25344,7 +25364,15 @@ page-login .icon {
   padding-right: 10px;
 }
 
+page-scan .Scan {
+  background-color: #b4d7ff;
+}
+
+page-scan .color {
+  background-color: #666362;
+}
+
 page-scan .Scan-button {
   color: #ffffff;
-  background-color: #c7932b;
+  background-color: #1E90FF;
 }

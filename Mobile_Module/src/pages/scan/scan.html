@@ -6,12 +6,15 @@
 
 </ion-header>
 
-<ion-content padding class="Scan">
+<ion-content class="Scan">
+
+  <ion-card class="color">
+    <ion-img  src = "assets/img/scan.jpg" class="center-image"> </ion-img>
   <div class="row">
     <div class="col">
-      <h2>Scan your {{eventTitle}} QR Code </h2>
+      <h2 style="color:white;" align="center">Scan your {{eventTitle}} QR Code </h2>
     </div>
-
   </div>
-  <button ion-button block color="secondary" class="Scan-button" (click)="scanQR()" [disabled]="loading">{{buttonText}}</button>
+  <button ion-button block color="primary" class="Scan-button" (click)="scanQR()" [disabled]="loading">{{buttonText}}</button>
+</ion-card>
 </ion-content>

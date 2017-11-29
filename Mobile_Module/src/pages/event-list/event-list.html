@@ -1,16 +1,14 @@
 <ion-header>
-
   <ion-navbar>
     <ion-title>Event List</ion-title>
   </ion-navbar>
-
 </ion-header>
-
-
-<ion-content padding>
-  <ion-list>
-    <ion-item *ngFor="let event of events" (click)="scanForEvent(event.id, event.title)">
+<ion-content class ="Events">
+  <ion-list inset>
+    <!--<ion-item *ngFor="let event of events" [(ngModel)]="active"(click)="scanForEvent(event.id, event.title, event.active)">-->
+  <button ion-item *ngFor="let event of events" type ="submit" (click)="scanForEvent(event.id, event.title, event.active)">
       {{event.title}}
-    </ion-item>
+      </button>
+
   </ion-list>
 </ion-content>

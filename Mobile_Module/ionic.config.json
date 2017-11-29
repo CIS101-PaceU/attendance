@@ -1,6 +1,6 @@
 {
   "name": "QRScanner",
   "app_id": "c11bd1ea",
-  "v2": true,
-  "typescript": true
+  "integrations": {},
+  "type": "ionic-angular"
 }
