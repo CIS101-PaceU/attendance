@@ -10,9 +10,9 @@
 <ion-content class = "Events" >
   <ion-img  src = "assets/img/paceNYC.jpg" class="center-image"> </ion-img>
   <ion-card class="color">
-  <button type="submit" class="send" ion-button color="primary"  block ><ion-icon name='unlock' item-start></ion-icon>Active Events</button>
+  <button type="submit" class="send" ion-button color="primary"  block (click) = "active()"><ion-icon name='unlock' item-start></ion-icon>Active Events</button>
   <button type="submit" class="send" ion-button color="primary" block (click) = "eventlist()"><ion-icon name='people' item-start></ion-icon>Class Attendance</button>
-  <button type="submit" class="send" ion-button color="primary" block ><ion-icon name='star' item-start></ion-icon>Special Events</button>
+  <!--<button type="submit" class="send" ion-button color="primary" block ><ion-icon name='star' item-start></ion-icon>Special Events</button> -->
 </ion-card>
   <ion-img  src = "assets/img/pc.jpg" class="center-image"> </ion-img>
 </ion-content>

@@ -25260,8 +25260,27 @@ ion-navbar.toolbar {
   }
 }
 
+page-active-event .ActiveEvents {
+  background-color: #b4d7ff;
+}
+
 page-event-list .Events {
   background-color: #b4d7ff;
+}
+
+page-event-list .button {
+  background-color: #1E90FF;
+  position: center !important;
+  align: center !important;
+  width: 100px;
+  position: relative;
+  left: 50%;
+  margin-left: -50px;
+}
+
+page-event-list .event-button {
+  background-color: #3b5998;
+  color: white;
 }
 
 EventPage .Events {
@@ -25319,7 +25338,7 @@ page-login ion-card.card {
   border-radius: 5px;
 }
 
-page-login a,
+page-login,
 page-login ion-card-header.card-header {
   color: #fff !important;
   text-align: center;
@@ -25375,4 +25394,36 @@ page-scan .color {
 page-scan .Scan-button {
   color: #ffffff;
   background-color: #1E90FF;
+  width: 200px;
+  left: 35%;
+  margin-left: -35px;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  align: center;
+}
+
+page-scan .logout {
+  background-color: #1E90FF;
+  position: center !important;
+  align: center !important;
+  width: 100px;
+  position: relative;
+  left: 50%;
+  margin-left: -50px;
+}
+
+page-scan-result .scan-result {
+  background-color: #b4d7ff;
+  text-align: center;
+}
+
+page-scan-result .logout {
+  background-color: #3b5998;
+  position: center !important;
+  align: center !important;
+  width: 100px;
+  position: relative;
+  left: 50%;
+  margin-left: -50px;
 }

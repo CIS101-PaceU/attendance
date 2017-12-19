@@ -1,12 +1,11 @@
-    import { Component } from '@angular/core';
-//import { NavController, NavParams, LoadingController } from 'ionic-angular';
-//import { FormControl, FormBuilder, FormGroup } from '@angular/forms';
-import { NavController, ViewController } from 'ionic-angular';
-//import { EventListPage } from "../event-list/event-list";
-//import {ScanPage} from "../scan/scan";
+import { Component } from '@angular/core';
+import { NavController, ViewController,AlertController } from 'ionic-angular';
 import { EventPage } from "../events/event";
 import { ForgotPasswordPage } from "../forgot_password/frg_pass";
 import {Http } from '@angular/http';
+import { GooglePlus } from '@ionic-native/google-plus';
+//import firebase from 'firebase';
+//import { AngularFireAuth } from 'angularfire2/auth';
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -18,59 +17,29 @@ export class LoginPage {
     data: any;
     output: number;
     public local: Storage;
-  //};
-//  public loginFormControl: FormGroup;
+    userProfile: any = null;
+    displayName: any;
 
- /*constructor(
-    private _nav: NavController,
-    public navParams: NavParams,
-    private _loadingController: LoadingController,
-    private _formBuilder: FormBuilder) /*{
-      // Create FormControl to validate fields
-    this.loginFormControl = new FormGroup({
-      email: new FormControl('utk', [Validators.required]),
-      password: new FormControl('as', [Validators.required, Validators.minLength(8)]),
-    });
-  }
+ email: any;
+ familyName: any;
+ givenName: any;
+ userId: any;
+ imageUrl: any;
+ isLoggedIn:boolean = false;
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
-  }
-  public forgot_password() {
-      this._nav.push(ForgotPasswordPage);
-  }*/
 
-  /*public login() {
-
-    // Validation
-    if (!this.loginFormControl.valid) {
-      alert("Invalid fields!");
-      return;
-    }
-
-    let loading = this._loadingController.create({
-      content: "Please wait...",
-      duration: 3000
-    });
-
-    loading.present();
-
-    //Take the values from  the form control
-    this.newUser.email = this.loginFormControl.get("email").value.trim();
-    this.newUser.password = this.loginFormControl.get("password").value;
-
-    // To simulate Logging in Server Response
-    window.setTimeout(() => {
-      this._nav.push(EventPage);
-    }, 3000);
-  } */
-
-  constructor(public navCtrl: NavController, private viewCtrl: ViewController, public http : Http) {
+  constructor(public navCtrl: NavController, private viewCtrl: ViewController, public http : Http,private googlePlus: GooglePlus,public alertCtrl: AlertController) {
   this.data = {};
   this.data.username = "";
   this.data.password = "";
   this.data.userid  = "";
-
+ /*firebase.auth().onAuthStateChanged( user => {
+     if (user){
+       this.userProfile = user;
+     } else {
+       this.userProfile = null;
+     }
+   });*/
 
 }
 ionViewDidLoad() {
@@ -79,6 +48,47 @@ ionViewDidLoad() {
 public forgot_password() {
     this.navCtrl.push(ForgotPasswordPage);
 }
+
+/*public loginUser() {
+  this.googlePlus.login({
+    'webClientId': '916344351524-d4j5tm4e2m8e3lhvtqb14duii3nd0e8l.apps.googleusercontent.com',
+    'offline': true
+  })
+
+  .then( res => {
+    alert("login succ");
+    console.log(res);
+        this.displayName = res.displayName;
+        this.email = res.email;
+        this.familyName = res.familyName;
+        this.givenName = res.givenName;
+        this.userId = res.userId;
+        this.imageUrl = res.imageUrl;
+        this.isLoggedIn = true;
+
+alert(this.displayName);
+alert(this.email);
+alert(res.userId);
+window.setTimeout(() => {
+    this.navCtrl.push(EventPage,{userid:this.data.userid});
+  }, 3000);
+
+  //alert("ere");
+  /*  firebase.auth().signInWithCredential(firebase.auth.GoogleAuthProvider.credential(res.idToken))
+      .then( success => {
+        alert("login success");
+        //console.log("Firebase success: " + JSON.stringify(success));
+      })
+      .catch(err=>{alert("login fail");})*/
+    //  .catch( error => console.log("Firebase failure: " + JSON.stringify(error)));
+/*  }).catch(err=>{console.error(err); })
+
+
+this.googlePlus.logout()
+.then(res=>{alert("logout success");})
+.catch(err=>{alert("error while logout");
+})
+}*/
 
   public login()
   {
@@ -105,7 +115,12 @@ public forgot_password() {
 
   if (res == "0")
   {
-    alert("Login Failed. Please check Username and Password");
+    let basicAlert = this.alertCtrl.create({
+    title: 'Attendance Module',
+    subTitle:"Login Failed. Please check Username and Password",
+    buttons: ['OK']
+  });
+   basicAlert.present();
   }
   else
   {
@@ -117,4 +132,5 @@ public forgot_password() {
   alert(err);
   });
 }
+
 }

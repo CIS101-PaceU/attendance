@@ -1,14 +1,16 @@
 <ion-header>
   <ion-navbar>
     <ion-title>Event List</ion-title>
+
   </ion-navbar>
 </ion-header>
 <ion-content class ="Events">
   <ion-list inset>
     <!--<ion-item *ngFor="let event of events" [(ngModel)]="active"(click)="scanForEvent(event.id, event.title, event.active)">-->
-  <button ion-item *ngFor="let event of events" type ="submit" (click)="scanForEvent(event.id, event.title, event.active)">
+  <button ion-item *ngFor="let event of events" class="event-button" block outline color="light" type ="submit" (click)="scanForEvent(event.id, event.title, event.active)">
       {{event.title}}
       </button>
 
   </ion-list>
+    <button type = "submit" ion-button block outline color="light" block tappable (click) = "logout()"> Log out </button>
 </ion-content>

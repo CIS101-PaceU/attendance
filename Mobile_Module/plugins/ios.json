@@ -1,33 +1,48 @@
 {
-    "prepare_queue": {
-        "installed": [],
-        "uninstalled": []
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.ionicframework.qrscanner116241"
     },
-    "config_munge": {
-        "files": {}
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.ionicframework.qrscanner116241"
     },
-    "installed_plugins": {
-        "cordova-plugin-console": {
-            "PACKAGE_NAME": "com.ionicframework.qrscanner116241"
-        },
-        "cordova-plugin-device": {
-            "PACKAGE_NAME": "com.ionicframework.qrscanner116241"
-        },
-        "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "com.ionicframework.qrscanner116241"
-        },
-        "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "com.ionicframework.qrscanner116241"
-        },
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.ionicframework.qrscanner116241"
-        },
-        "ionic-plugin-keyboard": {
-            "PACKAGE_NAME": "com.ionicframework.qrscanner116241"
-        },
-        "cordova-plugin-barcodescanner": {
-            "PACKAGE_NAME": "com.ionicframework.qrscanner116241"
-        }
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.ionicframework.qrscanner116241"
     },
-    "dependent_plugins": {}
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.ionicframework.qrscanner116241"
+    },
+    "ionic-plugin-keyboard": {
+      "PACKAGE_NAME": "com.ionicframework.qrscanner116241"
+    },
+    "cordova-plugin-barcodescanner": {
+      "PACKAGE_NAME": "com.ionicframework.qrscanner116241"
+    },
+    "cordova-plugin-googleplus": {
+      "REVERSED_CLIENT_ID": "com.googleusercontent.apps.916344351524-d4j5tm4e2m8e3lhvtqb14duii3nd0e8l",
+      "PACKAGE_NAME": "com.ionicframework.qrscanner116241"
+    },
+    "cordova-plugin-geolocation": {
+      "GEOLOCATION_USAGE_DESCRIPTION": " ",
+      "PACKAGE_NAME": "com.ionicframework.qrscanner116241"
+    },
+    "cordova-plugin-ionic-webview": {
+      "PACKAGE_NAME": "com.ionicframework.qrscanner116241"
+    },
+    "com.shazron.cordova.plugin.keychainutil": {
+      "PACKAGE_NAME": "com.ionicframework.qrscanner116241"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-compat": {
+      "PACKAGE_NAME": "com.ionicframework.qrscanner116241"
+    }
+  }
 }

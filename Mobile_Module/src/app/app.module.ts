@@ -4,6 +4,7 @@ import { HttpModule } from '@angular/http';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { EventListPage } from '../pages/event-list/event-list';
+import { ActiveEventPage } from '../pages/active-event/active-event';
 import { EventPage } from '../pages/events/event';
 import { LoginPage } from '../pages/login/login';
 import { ScanPage } from '../pages/scan/scan';
@@ -16,6 +17,20 @@ import { StatusBar } from "@ionic-native/status-bar";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { BarcodeScanner } from "@ionic-native/barcode-scanner";
 import { Geolocation } from "@ionic-native/geolocation";
+import { GooglePlus } from '@ionic-native/google-plus';
+import { AngularFireModule } from 'angularfire2';
+//import firebase from 'firebase';
+
+var config = {
+    apiKey: "AIzaSyBf5sYBtVFghFWNxagpVo7O8iaFQaokYe0",
+    authDomain: "ionic2attendance.firebaseapp.com",
+    databaseURL: "https://ionic2attendance.firebaseio.com",
+    projectId: "ionic2attendance",
+    storageBucket: "ionic2attendance.appspot.com",
+    messagingSenderId: "916344351524"
+  };
+
+  //firebase.initializeApp(config);
 
 @NgModule({
   declarations: [
@@ -25,12 +40,14 @@ import { Geolocation } from "@ionic-native/geolocation";
     ForgotPasswordPage,
     LoginPage,
     ScanPage,
-    ScanResultPage
+    ScanResultPage,
+    ActiveEventPage
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(config)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -40,7 +57,8 @@ import { Geolocation } from "@ionic-native/geolocation";
     ForgotPasswordPage,
     LoginPage,
     ScanPage,
-    ScanResultPage
+    ScanResultPage,
+    ActiveEventPage
   ],
   providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler },
     Api,
@@ -49,7 +67,8 @@ import { Geolocation } from "@ionic-native/geolocation";
     SplashScreen,
     BarcodeScanner,
     Device,
-    Geolocation
+    Geolocation,
+    GooglePlus
   ]
 })
 export class AppModule { }

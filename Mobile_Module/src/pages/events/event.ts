@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 //import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { EventListPage } from "../event-list/event-list";
+import { ActiveEventPage } from "../active-event/active-event";
 
 @Component({
   selector: 'EventPage',
@@ -23,4 +24,7 @@ export class EventPage {
 public eventlist() {
       this._nav.push(EventListPage,{userid:this.userid});
   }
+public active(){
+      this._nav.push(ActiveEventPage,{userid:this.userid});
+}
 }

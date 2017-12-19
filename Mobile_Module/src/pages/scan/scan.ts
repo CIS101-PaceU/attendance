@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams,AlertController } from 'ionic-angular';
 import { Device } from '@ionic-native/device';
 import { BarcodeScanner } from "@ionic-native/barcode-scanner";
 import { ScanResultPage } from "../scan-result/scan-result.ts";
+import { LoginPage } from "../login/login";
 import {Http } from '@angular/http';
 import { Geolocation } from "@ionic-native/geolocation";
 import 'rxjs/add/operator/map';
@@ -32,7 +33,8 @@ export class ScanPage {
     private _barcodeScanner: BarcodeScanner,
     public http : Http,
     private device: Device,
-    private geolocation: Geolocation) {
+    private geolocation: Geolocation,
+  public alertCtrl: AlertController) {
       //this.data = {};
   }
 
@@ -51,8 +53,31 @@ export class ScanPage {
   }
 
   public scanQR() {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    let data = JSON.stringify({userid:this.userid,eventId:this.eventId});
+    this.http.post('https://attendancemobileapp.000webhostapp.com/Check_Attendance.php',data)
+    .map(res => res.json())
+    .subscribe(res => {
+    //alert("success "+res);
+    console.log(res);
+//    alert(res1);
+    if (res == "1")
+     {
+       let basicAlert = this.alertCtrl.create({
+       title: 'Attendance Module',
+       subTitle:"Attendance is already Marked for the User. Thank You",
+       buttons: ['OK']
+     });
+      basicAlert.present();
+     }
+    else
+     {
+
+
     this.buttonText = "Loading..";
     this.loading = true;
+
 
     this._barcodeScanner.scan().then((barcodeData) => {
       // if (barcodeData.cancelled) {
@@ -86,10 +111,16 @@ export class ScanPage {
 
       //alert(JSON.stringify(resp));
     }).catch((error) => {
-      alert('Error getting location'+JSON.stringify(error));
+      let basicAlert = this.alertCtrl.create({
+      title: 'Attendance Module',
+      subTitle:"Error getting location" +JSON.stringify(error),
+      buttons: ['OK']
+    });
+     basicAlert.present();
     });
 
-
+  }
+});
   }
   //public scanQR(){
 
@@ -118,7 +149,12 @@ export class ScanPage {
 //    alert(res1);
     if (res == "0")
     {
-      alert("Error While Scanning Barcode");
+      let basicAlert = this.alertCtrl.create({
+      title: 'Attendance Module',
+      subTitle:"Error While Scanning Barcode",
+      buttons: ['OK']
+      });
+      basicAlert.present();
     //  alert(err);
     }
     else
@@ -133,6 +169,10 @@ export class ScanPage {
     alert(err);
     });
   }
+  public logout()
+  {
+   this._nav.push(LoginPage);
 
+  }
 
 }

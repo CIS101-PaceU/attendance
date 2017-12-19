@@ -16,4 +16,20 @@ page-scan-result {
   //   display: flex;
   //   justify-content: center;
   // }
+  .scan-result {
+    background-color: #b4d7ff;
+    text-align: center;
+
+
+  }
+  .logout
+  {
+    background-color: #3b5998;
+     position: center!important;
+     align: center!important;
+     width: 100px;
+     position: relative;
+     left: 50%;
+     margin-left: -50px;
+  }
 }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { LoginPage } from "../login/login";
 
 
 @Component({
@@ -9,10 +10,13 @@ import { NavController, NavParams } from 'ionic-angular';
 export class ScanResultPage {
   private scannedText: string;
 
-  constructor(private navCtrl: NavController, private _navParams: NavParams) {}
+  constructor(private _nav: NavController, private _navParams: NavParams) {}
 
   ionViewDidLoad() {
     this.scannedText = this._navParams.get('scannedText');
   }
-
+  public logout()
+  {
+   this._nav.push(LoginPage);
+  }
 }

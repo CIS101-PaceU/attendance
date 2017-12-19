@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController,NavParams } from 'ionic-angular';
+import { NavController,NavParams,AlertController } from 'ionic-angular';
 import { ScanPage } from "../scan/scan";
+import { LoginPage } from "../login/login";
 import {Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
@@ -13,7 +14,7 @@ export class EventListPage {
   public userid: number;
   data :any;
   active: any;
-  constructor(private _nav: NavController,private _navParams: NavParams,public http : Http) { }
+  constructor(private _nav: NavController,private _navParams: NavParams,public http : Http,public alertCtrl: AlertController) { }
   ionViewDidLoad() {
     this.getEvents();
     this.userid = this._navParams.get('userid');
@@ -37,9 +38,9 @@ export class EventListPage {
           title:this.data[i].Event_name,
           active: this.data[i].Active
         });
-        console.log(this.data[0].Event_id);
+        /*console.log(this.data[0].Event_id);
         console.log(this.data[0].Event_name);
-        console.log(this.data[0].Active);
+        console.log(this.data[0].Active);*/
       }
       });
   }
@@ -48,7 +49,12 @@ export class EventListPage {
     //alert(active);
     if (active == 'N')
     {
-      alert("This event is not active");
+      let basicAlert = this.alertCtrl.create({
+      title: 'Attendance Module',
+      subTitle:"This event is not active",
+      buttons: ['OK']
+    });
+     basicAlert.present();
     }
     else
     {
@@ -60,5 +66,10 @@ export class EventListPage {
 
     });
    }
+  }
+  public logout()
+  {
+   this._nav.push(LoginPage);
+
   }
 }

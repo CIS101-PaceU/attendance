@@ -2,4 +2,20 @@ page-event-list {
   .Events {
     background-color: #b4d7ff;
   }
+  .button
+  {
+    background-color: #1E90FF;
+
+     position: center!important;
+     align: center!important;
+     width: 100px;
+     position: relative;
+     left: 50%;
+     margin-left: -50px;
+  }
+  .event-button
+  {
+    background-color:#3b5998;
+    color: white;
+  }
 }
